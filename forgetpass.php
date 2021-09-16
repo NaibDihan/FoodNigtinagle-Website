@@ -2,9 +2,9 @@
 
     <section class="food-forget text-center">
         <div class="container">
-            <div class="loginbox forget">
-                <h1>Validation</h1>
-                
+        <h1 class="login-h1">Validation</h1>
+            <div class="loginbox">
+            <div class = "loginbhitore forget">
                 <form action="" method="POST">
                 <p>Username</p>
                 <input type="text" name="username" placeholder="Enter Your Username" required>
@@ -23,6 +23,7 @@
 
             </div>
         </div>
+</div>
     </section>
 
     <?php include('partial-front/footer.php');?>
