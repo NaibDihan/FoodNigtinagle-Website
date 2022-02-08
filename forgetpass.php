@@ -50,7 +50,7 @@ if(isset($_POST['Submit'])){
                          echo "
                          <script>
                          alert('Password Changed Successfully');
-                         window.location.href = 'index.html';
+                         window.location.href = 'index.php';
                          </script>
                          
                          ";

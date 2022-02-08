@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/style1.css">
+
    
     <link rel="stylesheet" href="css/responsive.css">
     <title>Document</title>
@@ -31,18 +32,52 @@
              <li>
                 <a href="<?php echo SITEURL;?>restaurant.php">Restaurants</a>
             </li>
-            <li>
-                <a href="#">Cart</a>
+            <?php
+            $count=0;
+             if(isset($_SESSION['cart'])){
+                 $count=count($_SESSION['cart']);
+             }
+            
+            ?>
+            <?php
+            if(!isset($_SESSION['username'])){
+                ?>
+                <li>
+                <a href="<?php echo SITEURL;?>login.php">Cart</a>
             </li>
+            <?php
+            }
+            else{
+                ?>
+            <li>
+                <a href="<?php echo SITEURL;?>mycart.php">Cart(<?php echo $count;?>)</a>
+            </li>
+            <?php
+            }
+            ?>
             <li>
                 <a href="#">About</a>
             </li>
             <li>
                 <a href="#">Contact</a>
             </li>
-            <li>
+            <?php
+            if(!isset($_SESSION['username'])){
+                ?>
+                <li>
                 <a href="<?php echo SITEURL;?>login.php">Login/Register</a>
             </li>
+            <?php
+            }
+            else{
+                ?>
+            <li>
+                <a href="<?php echo SITEURL;?>logout.php">Logout</a>
+            </li>
+            <?php
+            }
+            ?>
+            
          </ul>
 
          <div class="mobile-menu">
@@ -52,10 +87,39 @@
              <div class="overlay-content">
                 <a onclick="closeNav()" href="<?php echo SITEURL;?>">Home</a>
                 <a onclick="closeNav()" href="<?php echo SITEURL;?>restaurant.php">Restaurants</a>
-                <a onclick="closeNav()" href="#">Cart</a>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart'])){
+                    $count=count($_SESSION['cart']);
+             }
+            
+            ?>
+               <?php
+            if(!isset($_SESSION['username'])){
+                ?>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>login.php">Cart</a>
+                <?php
+            }
+            else{
+                ?>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>mycart.php">Cart<?php echo $count;?></a>
+                <?php
+            }
+            ?>
                 <a onclick="closeNav()" href="#">About</a>
                 <a onclick="closeNav()" href="#">Contact</a>
+                <?php
+            if(!isset($_SESSION['username'])){
+                ?>
                 <a onclick="closeNav()" href="<?php echo SITEURL;?>login.php">Login/Register</a>
+                <?php
+            }
+            else{
+                ?>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>logout.php">Logout</a>
+                <?php
+            }
+            ?>
                </div>
             </div>
             </div>

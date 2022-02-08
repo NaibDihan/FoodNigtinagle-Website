@@ -1,3 +1,4 @@
+<?php include('config/constants.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,19 +18,26 @@
     <div class="container">
       
         <div class="logo">
-         <a href="index.html"><img src="images/logo2.png" alt="Restaurant logo" class="img-responsive"></a>
+         <a href="<?php echo SITEURL;?>"><img src="images/logo2.png" alt="Restaurant logo" class="img-responsive"></a>
         </div>
 
         <div class="menu text-right">
-         <ul>
+        <ul>
              <li>
-                 <a href="index.html">Home</a>
+                 <a href="<?php echo SITEURL;?>">Home</a>
              </li>
              <li>
-                <a href="#">Restaurants</a>
+                <a href="<?php echo SITEURL;?>restaurant.php">Restaurants</a>
             </li>
+            <?php
+            $count=0;
+             if(isset($_SESSION['cart'])){
+                 $count=count($_SESSION['cart']);
+             }
+            
+            ?>
             <li>
-                <a href="#">Cart</a>
+                <a href="<?php echo SITEURL;?>mycart.php">Cart(<?php echo $count;?>)</a>
             </li>
             <li>
                 <a href="#">About</a>
@@ -38,7 +46,7 @@
                 <a href="#">Contact</a>
             </li>
             <li>
-                <a href="index.php">logout</a>
+                <a href="<?php echo SITEURL;?>logout.php">Logout</a>
             </li>
          </ul>
 
@@ -47,12 +55,19 @@
              <div id="myNav" class="overlay">
              <a href="javascript:void(0)" onclick="closeNav()" class="closebtn">&times;</a>
              <div class="overlay-content">
-                <a onclick="closeNav()" href="#">Home</a>
-                <a onclick="closeNav()" href="#">Restaurants</a>
-                <a onclick="closeNav()" href="#">Cart</a>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>">Home</a>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>restaurant.php">Restaurants</a>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart'])){
+                    $count=count($_SESSION['cart']);
+             }
+            
+            ?>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>mycart.php">Cart</a>
                 <a onclick="closeNav()" href="#">About</a>
                 <a onclick="closeNav()" href="#">Contact</a>
-                <a onclick="closeNav()" href="#">Login/Register</a>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>logout.php">Logout</a>
                </div>
             </div>
             </div>

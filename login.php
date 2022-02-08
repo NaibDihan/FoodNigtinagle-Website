@@ -49,10 +49,11 @@
         $res=mysqli_query($conn,$sql) or die(mysqli_error($conn));
         if($res){
             if(mysqli_num_rows($res)>0){
+                $_SESSION['username']=$username;
                 echo "
                 <script>
                 alert('You are logged in.');
-                window.location.href = 'logoutcustomer.php';
+                window.location.href = 'index.php';
                 </script>
                 ";
 

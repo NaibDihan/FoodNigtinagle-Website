@@ -7,7 +7,7 @@ define('SITEURL','http://localhost/project2/');
 define('LOCALHOST','localhost');
 define('DB_USERNAME','root');
 define('DB_PASSWORD','');
-define('DB_NAME','food_nightingale');
+define('DB_NAME','food_nightingale1');
 
 
 

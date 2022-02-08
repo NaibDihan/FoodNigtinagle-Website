@@ -1,4 +1,9 @@
-<?php include('partial-front/menu.php');?>
+
+<?php include('partial-front/menu.php');
+// session_start();
+// session_destroy();
+
+?>
 
  <?php
  if(isset($_GET['username']))
@@ -68,12 +73,28 @@
                 $price=$row2['price'];
                 $description = $row2['Description'];
                 ?>
-            <div class="food-box">
-                <h3><?php echo $food_name;?></h3>
-                <h4><?php echo $price;?></h4>
-                <p><?php echo $description;?></p>
-                <a href="#" class="btn btn-primary">Add to cart</a>
-            </div>
+    
+       <?php         
+        echo "     
+        <div class='food-box'>
+        <form action='cart.php?username=$username' method='POST'>
+                <h3>$row2[food_name]</h3>
+                <h4>$row2[price]</h4>
+                <p>$row2[Description]</p>
+                <button type='submit' name='Add_To_Cart' class='btn btn-primary'>Add to cart</button>
+                <input type='hidden' name='Food_Name' value='$row2[food_name]'>
+                <input type='hidden' name='Price' value='$row2[price]'>
+                
+
+        </form>   
+            
+        </div>
+        ";
+        ?>
+        
+       
+        
+       
            
             
               <?php  

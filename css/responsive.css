@@ -54,9 +54,12 @@
     .foot{
         width: 95%;
     }
+    .food-container{
+        display: block;
+    }
     .food-box{
-      max-width: 90%;
-      margin: 3% auto;
+      width: 70%;
+      margin:40px auto;
     }
     
 }
@@ -109,13 +112,14 @@
     .h2-padding{
         padding: 20% 0 0 0;
     }
+  
 }
 @media screen and (max-width:600px){
    .signupbox{
       width: auto;
       top:-40%
    }
-  
+
 
 }
 @media screen and (max-width:500px){
