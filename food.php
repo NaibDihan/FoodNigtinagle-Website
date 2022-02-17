@@ -1,4 +1,3 @@
-
 <?php include('partial-front/menu.php');
 // session_start();
 // session_destroy();
@@ -81,6 +80,7 @@
                 <h3>$row2[food_name]</h3>
                 <h4>$row2[price]</h4>
                 <p>$row2[Description]</p>
+                
                 <button type='submit' name='Add_To_Cart' class='btn btn-primary'>Add to cart</button>
                 <input type='hidden' name='Food_Name' value='$row2[food_name]'>
                 <input type='hidden' name='Price' value='$row2[price]'>
@@ -89,6 +89,8 @@
         </form>   
             
         </div>
+        
+
         ";
         ?>
         
@@ -109,14 +111,108 @@
 }
                      }
         ?>
-        
-                   
+
+    <div class='review'>
+        <form action='' method='POST'>
+            <h3>Review this restaurant</h3>
+        <textarea name="Description" id="" required></textarea>
+    <div class='form-check'>
+        <input class='form-check-input' type='radio' name='rating' id='exampleRadios1' value='5' checked >
+        <label class='form-check-label' for='exampleRadios1'>
+          Excellent
+        </label>
+        <br>
+        <input class='form-check-input' type='radio' name='rating' id='exampleRadios1' value='4'>
+        <label class='form-check-label' for='exampleRadios1'>
+            Very Good
+        </label>
+        <br>
+        <input class='form-check-input' type='radio' name='rating' id='exampleRadios1' value='3' >
+        <label class='form-check-label' for='exampleRadios1'>
+            Good
+        </label>
+        <br>
+        <input class='form-check-input' type='radio' name='rating' id='exampleRadios1' value='2'>
+        <label class='form-check-label' for='exampleRadios1'>
+            Bad
+        </label>
+        <br>
+        <input class='form-check-input' type='radio' name='rating' id='exampleRadios1' value='1'>
+        <label class='form-check-label' for='exampleRadios1'>
+            Very bad
+        </label>
+    </div>
+        <br>
+        <button class='btn btn-primary btn-block' name='submit_review'>Submit</button>
+    </form> 
+    </div>      
 
             <div class="clearfix"></div>
         </div>
         
     
     </section>
+<?php
+if(isset($_POST['submit_review']))
+{
+    if(!isset($_SESSION['username'])){
+        echo"
+        <script>
+        alert('You have to log in first.');
+        window.location.href='login.php'
+        </script>
+        ";
+    }
+    else{
+        $username_customer=$_SESSION['username'];
+        $description=$_POST['Description'];
+        if($_POST['rating']=="1")
+                 {
+                     $rating = 1;
+                 }
 
+         else if($_POST['rating']=="2")
+                 {
+                     $rating = 2;
+                 }
+        else if($_POST['rating']=="3")
+                 {
+                     $rating = 3;
+                 }
+        else if($_POST['rating']=="4")
+                 {
+                     $rating = 4;
+                 }
+        else if($_POST['rating']=="5")
+                 {
+                     $rating = 5;
+                 }
+                 
+        $sql = "INSERT INTO rating SET
+                 review='$description',
+                 customer_name='$username_customer',
+                 res_name='$res_name',
+                 owner_name='$username',
+                 rating='$rating'
+             ";
+               $res=mysqli_query($conn,$sql) or die(mysqli_error($conn)); 
+               if($res)
+           {
+               echo "
+                <script>
+                     alert('Thanks for your review');
+         
+                </script>
+               
+               ";
+               
+           }
+
+
+    }
+
+}
+
+?>
 
     <?php include('partial-front/footer.php');?>

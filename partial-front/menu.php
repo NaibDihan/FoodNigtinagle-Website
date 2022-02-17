@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/style1.css">
-
-   
     <link rel="stylesheet" href="css/responsive.css">
+
+
     <title>Document</title>
 </head>
 <body>

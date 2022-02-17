@@ -90,9 +90,14 @@ if($res){
                     <input type="text" name="phone_no" class="form-control" required>
                     </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pay_method" id="exampleRadios1" value="COD" checked>
+                    <input class="form-check-input" type="radio" name="pay_method" id="exampleRadios1" value="COD" checked >
                     <label class="form-check-label" for="exampleRadios1">
                         Cash On Delivery
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="pay_method" id="exampleRadios1" value="Online" >
+                    <label class="form-check-label" for="exampleRadios1">
+                        Online Payment
                     </label>
                     </div>
                     <br>

@@ -20,7 +20,16 @@ session_start();
 // $username=$_GET['username'];
 
 if(isset($_POST['Add_To_Cart'])){
-     $food_name=$_POST['Food_Name'];
+    if(!isset($_SESSION['username'])){
+        echo"
+        <script>
+        alert('You have to log in first.');
+        window.location.href='login.php'
+        </script>
+        ";
+    }
+else{
+    $food_name=$_POST['Food_Name'];
     $food_price=$_POST['Price'];
     
 
@@ -50,6 +59,7 @@ else{
             window.location.href='food.php?username=$_GET[username]';
             </script>";
     
+}
 }
 }
 if(isset($_POST['Remove_Food'])){
