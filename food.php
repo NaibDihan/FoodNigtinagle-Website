@@ -17,6 +17,8 @@
      $avg_result=mysqli_query($conn,$query) or die(mysqli_error($conn));
      $fetch_avg=mysqli_fetch_array($avg_result);
      $avg_rating=$fetch_avg['avg_rating'];
+     
+     
      if($avg_rating-5==0){
          $avg_rating=5;
      }
@@ -207,6 +209,11 @@ if(isset($_POST['submit_review']))
         ";
     }
     else{
+        $sql1 = "INSERT INTO avg_rating SET
+        owner_name='$username',
+        avgrating='$avg_rating'
+"; 
+$res1=mysqli_query($conn,$sql1) or die(mysqli_error($conn));
         $username_customer=$_SESSION['username'];
         $description=$_POST['Description'];
         if($_POST['rating']=="1")
@@ -244,6 +251,7 @@ if(isset($_POST['submit_review']))
                echo "
                 <script>
                      alert('Thanks for your review');
+                     window.location.href='food.php?username=$username'
          
                 </script>
                

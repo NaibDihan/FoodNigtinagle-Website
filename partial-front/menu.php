@@ -59,10 +59,7 @@
             }
             ?>
             <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
+                <a href="<?php echo SITEURL;?>contact.php">Contact</a>
             </li>
             <?php
             if(!isset($_SESSION['username'])){
@@ -110,7 +107,7 @@
             }
             ?>
                 <a onclick="closeNav()" href="#">About</a>
-                <a onclick="closeNav()" href="#">Contact</a>
+                <a onclick="closeNav()" href="<?php echo SITEURL;?>contact.php">Contact</a>
                 <?php
             if(!isset($_SESSION['username'])){
                 ?>

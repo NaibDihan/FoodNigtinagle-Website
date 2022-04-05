@@ -20,7 +20,66 @@
     <section class="restaurant">
         <div class="container">
             <h2 class="text-center">Best Selling Restaurants</h1>
-            <a href="#">
+            <?php
+                $sql = "SELECT * FROM avg_rating ORDER BY avgrating DESC LIMIT 3";
+                $res = mysqli_query($conn,$sql) or mysqli_error($conn);
+                $count = mysqli_num_rows($res);
+                if($res)
+                {
+                     if($count>0)
+                     {
+                        while($row  = mysqli_fetch_assoc($res))
+                        {
+                           $username = $row['owner_name'];
+                           
+                           $sql1 = "SELECT * FROM tbl_restaurant_info WHERE username='$username'";
+                           $res1 = mysqli_query($conn,$sql1) or mysqli_error($conn);
+                           $count1 = mysqli_num_rows($res1);
+                           if($res1)
+                           {
+                                if($count1>0)
+                                {
+                                   while($row1  = mysqli_fetch_assoc($res1))
+                                   {
+                                    $res_name = $row1['res_name'];
+                                      $res_img = $row1['res_img'];
+                             
+                
+                           ?>
+                   <a href="<?php echo SITEURL;?>food.php?username=<?php echo $username;?>">
+                    <div class="box-3 float-container">
+                    <?php
+                    if($res_img=="")
+                    {
+    
+                    }
+                    else
+                    {
+                       ?>
+                      <img src="<?php echo SITEURL;?>images/restaurant/<?php echo $res_img;?>" alt="res1" class="img-responsive" height="600px">
+                      <?php
+                    }
+                    ?>
+                     
+                     <div class="float-text background">
+                        <h3 class="text-white"><?php echo $res_name;?></h3>
+                     </div>
+                </div> </a>
+    
+                           <?php
+    
+                }
+            }
+        }
+                   
+            }
+        }
+    }
+    
+    
+                ?>
+               
+            <!-- <a href="#">
                 <div class="box-3 float-container">
                  <img src="images/res1.jpg" alt="res1" class="img-responsive">
                  <div class="float-text background">
@@ -44,7 +103,7 @@
                <h3 class="text-white">Faib's Corner</h3>
             </div>
        </div> 
-    </a>
+    </a> -->
 
             <div class="clearfix"></div>
         </div>
