@@ -72,6 +72,7 @@ if(isset($_POST['Submit']))
                      ";
                  }
                     else{
+                        $_SESSION['username']=$username;
                         $sql = "INSERT INTO tbl_customer SET
         full_name='$full_name',
         username='$username',
@@ -86,7 +87,7 @@ if(isset($_POST['Submit']))
       echo "
        <script>
             alert('you are registered');
-            window.location.href='logoutcustomer.php';
+            window.location.href='index.php';
 
        </script>
       

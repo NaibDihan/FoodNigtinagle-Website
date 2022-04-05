@@ -8,7 +8,7 @@ version : 1.0
 *{
     margin: 0 0;
     padding : 0 0;
-    font-family: 'work-sans','quicksand','poppings';
+    font-family: 'Poppins', 'sans-serif';
 
 }
 
@@ -786,14 +786,76 @@ nav ul li{
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
+    border-radius: 20px;
     background-color: #f8f8f8;
     font-size: 24px;
     resize: none;
     margin: 0 0 20px 0;
     
   }
-  .review.form-check{
-      display: flex;
-     justify-content: center;
+   .review input[type='radio']{
+      margin: auto;
   }
+ 
+  .review label{
+      color: #178A8A;
+    font-size: 25px;
+    font-weight: 700;
+}
+  .ft-modal {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+        z-index: 9999;	
+        overflow: auto;
+	position: fixed;
+        visibility: hidden;
+	margin-top: -250px;
+	background: rgba(0,0,0,.8);
+	
+	transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+}
+ 
+.ft-modal:target {
+	opacity: 1;
+	margin-top: 0px;
+	visibility: visible;	
+}
+ 
+.ft-modal-content {
+	width: 70%;
+    padding: 25px;
+	background: #FFF;
+	max-width: 600px;
+    margin: 70px auto;
+	position: relative;
+	border-radius: 8px;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+ 
+
+.ft-modal-close {
+	top: 9px;
+	right: 12px;
+	float: right;
+	position: absolute;
+}
+
+.grid{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.ft-modal-body.p-review{
+    text-align:left;
+}
+
+hr{
+    margin: 20px;
+    border: 3px solid whitesmoke;
+}

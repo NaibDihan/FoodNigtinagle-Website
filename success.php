@@ -68,7 +68,7 @@ if($code == 200 && !( curl_errno($handle)))
 
    
  
-	echo $status." ".$tran_id." ".$card_type;
+	// echo $status." ".$tran_id." ".$card_type;
 	
  
  echo "
