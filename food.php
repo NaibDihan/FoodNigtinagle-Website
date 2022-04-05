@@ -187,7 +187,7 @@
         <br>
         <button class='btn btn-primary btn-block' name='submit_review' style="margin:0 0 20px 0">Submit</button>
     </form>
-    <a href="#ft-demo-modal" style="font-size:25px;color:#276FBF;"onMouseOver="this.style.color='coral'" onMouseOut="this.style.color='#276FBF'">See others reviews</a> 
+    <a href="#ft-demo-modal" style="font-size:25px;color:#276FBF;font-weight:700"onMouseOver="this.style.color='coral'" onMouseOut="this.style.color='#276FBF'">See others reviews</a> 
     </div>      
 
             <div class="clearfix"></div>
