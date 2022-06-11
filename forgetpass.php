@@ -14,7 +14,6 @@
                 <input type="password" name="confirmpass" placeholder="Confirm Password" required>
                 <p class="userp">User Type</p>
                 <select name="usertype">
-                    <option value="Admin">Admin</option>
                     <option value="Customer">Customer</option>
                     <option value="Restaurant-Owner">Restaurant Owner</option>
                 </select>
@@ -33,9 +32,20 @@
 if(isset($_POST['Submit'])){
     $username = $_POST['username'];
     $usertype = $_POST['usertype'];
+    $pass_check=$_POST['newpassword'];
     $newpass = md5($_POST['newpassword']);
     $confirmpass = md5($_POST['confirmpass']);
 
+    if(strlen($pass_check)<8)
+    {
+        echo "
+        <script>
+        alert('Your password should have atleast 8 characters!');
+         window.location.href='forgetpass.php';
+         </script>
+         ";
+    }
+    else{
     if($newpass == $confirmpass )
     {
         if($usertype == "Customer"){
@@ -47,6 +57,7 @@ if(isset($_POST['Submit'])){
                     WHERE username='$username'";
                      $res1 = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
                      if($res1){
+                        $_SESSION['username']=$username;
                          echo "
                          <script>
                          alert('Password Changed Successfully');
@@ -97,10 +108,12 @@ if(isset($_POST['Submit'])){
                     WHERE username='$username'";
                      $res1 = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
                      if($res1){
+                        $_SESSION['username']=$username;
+                        $_SESSION['restaurant-name']=$res_name;
                          echo "
                          <script>
                          alert('Password Changed Successfully');
-                         window.location.href = 'owner.php';
+                         window.location.href = 'ownerfood_add.php';
                          </script>
                          
                          ";
@@ -138,55 +151,6 @@ if(isset($_POST['Submit'])){
              }
         }
 
-        if($usertype == "Admin"){
-            $sql = "SELECT * FROM tbl_admin WHERE username='$username'";
-            $res = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-            if($res){
-                if(mysqli_num_rows($res)>0){
-                    $sql1 = "UPDATE tbl_admin SET password='$newpass' 
-                    WHERE username='$username'";
-                     $res1 = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
-                     if($res1){
-                         echo "
-                         <script>
-                         alert('Password Changed Successfully');
-                         window.location.href = 'admin/index.php';
-                         </script>
-                         
-                         ";
-                     }
-                     else{
-                        echo "
-                        <script>
-                        alert('Database Error');
-                        window.location.href = 'forgetpass.php';
-                        </script>
-                        
-                        ";
-                     }
-
-                }
-                else{
-                    echo "
-                    <script>
-                    alert('Username is not valid');
-                    window.location.href = 'forgetpass.php';
-                    </script>
-                    
-                    ";
-                }
-
-            }
-            else{
-                echo "
-                <script>
-                alert('Database Error');
-                window.location.href = 'forgetpass.php';
-                </script>
-                
-                ";
-             }
-        }
     }
    
     
@@ -199,6 +163,7 @@ if(isset($_POST['Submit'])){
         
         ";
      }
+}
 }
 
 

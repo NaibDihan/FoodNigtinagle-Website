@@ -1,10 +1,10 @@
 <?php
-include('config/constants.php');
+include('partial-front/ownermenu.php');
+
 $username = $_SESSION['username'];
 $res_name = $_SESSION['restaurant-name'];
 $image =  $_SESSION['image'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@ $image =  $_SESSION['image'];
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/admin1.css"> <!-- manage admin er copy design dekhe admin1.css add korsi -->
-    <link rel="stylesheet" href="css/style.php">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Document</title>
 </head>

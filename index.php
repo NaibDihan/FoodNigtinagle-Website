@@ -7,11 +7,14 @@
             <p>Make your every bite delicious</p>
             </div>
 
-            <form action="">
-                <input type="search" name="search" placeholder="Search for restaurants">
-                <input type="submit" name="submit" value="Search" class="btn btn-primary">
-            </form>
+            <div>
 
+
+                <!-- <input type="search" name="search" id="search" placeholder="Search for restaurants">
+                <input type="submit" name="submit" value="Search" class="btn btn-primary"> -->
+                <!-- <div id="term"></div> -->
+
+            </div>
         </div>
     </section>
     <!--food-search section end-->
@@ -184,5 +187,34 @@
                </div>
     </section>
    <!--our-team section end-->
+   <!-- <script type="text/javascript">
+  $(document).ready(function() {
+     $( "#term" ).keyuo(function(){
+         var query=$(this).val();
+         if(query!=''){
+             $ajax({
+                 url:"ajax-db-search.php",
+                 method:"POST",
+                 data:{query:query},
+                 success:function(data)
+                 {
+                     $('#term').fadeIn();
+                     $('#term').html(data);
+
+                 }
+             });
+         }
+         else{
+             $('#term').fadeout();
+             $('#term').html("");
+         }
+     });
+     $(document).on('click','li',function(){
+         $('#search').val($(this).text());
+         $('#term').fadeOut();
+     });
+    });
+</script> -->
+
 
   <?php include('partial-front/footer.php');?>

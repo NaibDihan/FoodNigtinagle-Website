@@ -65,7 +65,10 @@
             else{
                 ?>
             <li class="nav-item">
-                <a href="<?php echo SITEURL;?>logout.php" class="nav-link" style="color:coral">Logout</a>
+            <a href="<?php echo SITEURL;?>reorder.php" class="nav-link" style="color:coral">Reorder</a>
+            </li>
+            <li class="nav-item">
+            <a href="<?php echo SITEURL;?>logout.php" class="nav-link" style="color:coral">Logout</a>
             </li>
             <?php
             }

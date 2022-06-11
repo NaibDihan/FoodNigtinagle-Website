@@ -117,8 +117,8 @@
         <div class='food-box'>
         <form action='cart.php?username=$username' method='POST'>
                 <h3>$row2[food_name]</h3>
-                <h4>$row2[price]</h4>
-                <p>$row2[Description]</p>
+                <h4 style='font-size:16px;background-color:grey;padding:5px;border-radius:7px; color:white; width:50px;'>Tk $row2[price]</h4>
+                <p style='font-weight:600';>$row2[Description]</p>
                 
                 <button type='submit' name='Add_To_Cart' class='btn btn-primary'>Add to cart</button>
                 <input type='hidden' name='Food_Name' value='$row2[food_name]'>

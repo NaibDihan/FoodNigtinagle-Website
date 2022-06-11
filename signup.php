@@ -40,7 +40,6 @@
 //Process the value from form and save it in database
 
 //Check whether the submit button is clicked or not
-
 if(isset($_POST['Submit']))
 {
     //1.Get the data from form
@@ -48,6 +47,7 @@ if(isset($_POST['Submit']))
     $username = $_POST['username'];
     $email = $_POST['email'];
     $address = $_POST['address'];
+    $pass_check=$_POST['password'];
     $password =md5($_POST['password']); //Password Encrypted
     $confirmpass =md5($_POST['confirmpass']);
     $usertype = $_POST['usertype'];
@@ -55,10 +55,19 @@ if(isset($_POST['Submit']))
 
   //2.SQL Query to save the data into the database
   
-
+  if(strlen($pass_check)<8)
+  {
+      echo "
+      <script>
+      alert('Your password should have atleast 8 characters!');
+       window.location.href='signup.php';
+       </script>
+       ";
+  }
+  else{
     if($password==$confirmpass){
         if($usertype=="Customer"){
-            $sql1="SELECT * from tbl_customer where username='$username'";
+            $sql1="SELECT * from tbl_customer where username='$username' OR email='$email'";
             $res1= mysqli_query($conn,$sql1) or die(mysqli_error($conn));
             if($res1)
             {
@@ -66,7 +75,7 @@ if(isset($_POST['Submit']))
                 {
                     echo "
                     <script>
-                    alert('This Username already exist.Please try another username.');
+                    alert('This Username or Email already exist.');
                      window.location.href='signup.php';
                      </script>
                      ";
@@ -84,9 +93,10 @@ if(isset($_POST['Submit']))
       $res=mysqli_query($conn,$sql) or die(mysqli_error($conn)); 
       if($res)
   {
+
       echo "
        <script>
-            alert('you are registered');
+            alert('You have registered');
             window.location.href='index.php';
 
        </script>
@@ -170,17 +180,19 @@ echo "
 
 }
     }
+
     
     else{
         echo "
         <script>
-             alert('pass mile nai');
+             alert('Password Incorrect');
              window.location.href='signup.php';
     
         </script>
        
        ";
     }
+}
 }
 
 

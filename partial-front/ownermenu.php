@@ -11,7 +11,6 @@
     
     <link rel="stylesheet" href="css/style1.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -31,37 +30,8 @@
         <div class="menu text-right">
          <ul>
              <li>
-                 <a href="<?php echo SITEURL;?>">Home</a>
+                 <a href="<?php echo SITEURL;?>ownerfood.php" style="margin-right:10px;">Home</a>
              </li>
-             <li>
-                <a href="<?php echo SITEURL;?>restaurant.php">Restaurants</a>
-            </li>
-            <?php
-            $count=0;
-             if(isset($_SESSION['cart'])){
-                 $count=count($_SESSION['cart']);
-             }
-            
-            ?>
-            <?php
-            if(!isset($_SESSION['username'])){
-                ?>
-                <li>
-                <a href="<?php echo SITEURL;?>login.php">Cart</a>
-            </li>
-            <?php
-            }
-            else{
-                ?>
-            <li>
-                <a href="<?php echo SITEURL;?>mycart.php">Cart(<?php echo $count;?>)</a>
-            </li>
-            <?php
-            }
-            ?>
-            <li>
-                <a href="<?php echo SITEURL;?>contact.php">Contact</a>
-            </li>
             <?php
             if(!isset($_SESSION['username'])){
                 ?>
@@ -72,9 +42,6 @@
             }
             else{
                 ?>
-            <li>
-                <a href="<?php echo SITEURL;?>reorder.php">Reorder</a>
-            </li>
             <li>
                 <a href="<?php echo SITEURL;?>logout.php">Logout</a>
             </li>
@@ -90,28 +57,7 @@
              <a href="javascript:void(0)" onclick="closeNav()" class="closebtn">&times;</a>
              <div class="overlay-content">
                 <a onclick="closeNav()" href="<?php echo SITEURL;?>">Home</a>
-                <a onclick="closeNav()" href="<?php echo SITEURL;?>restaurant.php">Restaurants</a>
-                <?php
-                    $count=0;
-                    if(isset($_SESSION['cart'])){
-                    $count=count($_SESSION['cart']);
-             }
-            
-            ?>
-               <?php
-            if(!isset($_SESSION['username'])){
-                ?>
-                <a onclick="closeNav()" href="<?php echo SITEURL;?>login.php">Cart</a>
-                <?php
-            }
-            else{
-                ?>
-                <a onclick="closeNav()" href="<?php echo SITEURL;?>mycart.php">Cart<?php echo $count;?></a>
-                <?php
-            }
-            ?>
-                <a onclick="closeNav()" href="#">About</a>
-                <a onclick="closeNav()" href="<?php echo SITEURL;?>contact.php">Contact</a>
+               
                 <?php
             if(!isset($_SESSION['username'])){
                 ?>
@@ -120,8 +66,6 @@
             }
             else{
                 ?>
-               
-               <a onclick="closeNav()" href="<?php echo SITEURL;?>reorder.php">Reorder</a>
     
                 <a onclick="closeNav()" href="<?php echo SITEURL;?>logout.php">Logout</a>
                 <?php

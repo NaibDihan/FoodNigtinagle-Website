@@ -2,17 +2,18 @@
 
 <section class="food-search text-center">
         <div class="container">
-           <form action="">
+           <!-- <form action="">
                 <input type="search" name="search" placeholder="Search for restaurants">
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
-            </form>
+            </form> -->
+            <h2 class="text-center" style="color:#178A8A;font-size:3.5rem;">Restaurants</h1>
+            
 
         </div>
     </section>
 <section class="restaurant">
         <div class="container">
-            <h2 class="text-center h2-padding">Restaurants</h1>
-            <p>Grab your favourite food from your favourite restaurant! We are here to serve you with our free home delivery service! So stay home and enjoy your meal :)  </p>
+        <p style="font-size:25px;font-weight:700;text-align:center;">Grab your favourite food from your favourite restaurant! We are here to serve you with our free home delivery service! So stay home and enjoy your meal :)  </p>
             <?php
             $sql = "SELECT * FROM tbl_addedres_front";
             $res = mysqli_query($conn,$sql) or mysqli_error($conn);

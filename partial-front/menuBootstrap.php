@@ -36,6 +36,7 @@
                     ?>
                     <li class="nav-item" > <a href="<?php echo SITEURL;?>mycart.php" class="nav-link" style="color:coral">Cart(<?php echo $count;?>)</a> </li>
                     <li class="nav-item" > <a href="<?php echo SITEURL;?>contact.php" class="nav-link" style="color:coral">Contact</a> </li>
+                    <li class="nav-item" > <a href="<?php echo SITEURL;?>reorder.php" class="nav-link" style="color:coral">Reorder</a> </li>
                     <li class="nav-item" > <a href="<?php echo SITEURL;?>logout.php" class="nav-link" style="color:coral">logout</a> </li>
 
 
