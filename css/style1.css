@@ -865,13 +865,13 @@ hr{
 
 .food-container1{
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     
 }
 .food-box1{
     max-width: 100%;
-    padding: 5%;
+    padding: 7%;
     cursor: pointer;
     margin-top:50px;
     margin-right: 15px;

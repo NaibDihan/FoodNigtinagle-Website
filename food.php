@@ -209,11 +209,29 @@ if(isset($_POST['submit_review']))
         ";
     }
     else{
-        $sql1 = "INSERT INTO avg_rating SET
-        owner_name='$username',
-        avgrating='$avg_rating'
-"; 
-$res1=mysqli_query($conn,$sql1) or die(mysqli_error($conn));
+        $count3=0;
+        $query="SELECT * FROM avg_rating WHERE owner_name='$username'";
+        $res3 = mysqli_query($conn,$query) or mysqli_error($conn);
+        $count3 = mysqli_num_rows($res3);
+        if($res3){
+            if($count3==0){
+                $query2="INSERT INTO avg_rating SET avgrating='$avg_rating',owner_name='$username'
+                ";
+                $res4=mysqli_query($conn,$query2) or mysqli_error($conn);
+            }
+        else{
+            $sql1 = "UPDATE avg_rating SET
+            avgrating='$avg_rating' WHERE owner_name='$username'
+    ";
+    $res1=mysqli_query($conn,$sql1) or die(mysqli_error($conn));
+        }
+    }
+
+  
+// UPDATE table_name
+// SET column1 = value1, column2 = value2, ...
+// WHERE condition;
+
         $username_customer=$_SESSION['username'];
         $description=$_POST['Description'];
         if($_POST['rating']=="1")
